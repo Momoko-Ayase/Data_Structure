@@ -79,9 +79,9 @@ bool GetElem_i(SqList<DT> L, int i, DT& e)
 template<class DT>
 int LocateElem_e(SqList<DT> L, DT e)
 {
-	for (int i = 0; i < L.length; i++)				// 顺序查找
-		if (L.elem[i] == e)						// 1.找到
-			return i + 1;							// 返回元素位序
+	for (int i = 1; i <= L.length; i++)				// 顺序查找
+		if (L.elem[i - 1] == e)						// 1.找到
+			return i;							// 返回元素位序
 	return 0;									// 2.未找到，返回0
 }
 
@@ -164,9 +164,9 @@ template <class DT>
 void DispList(SqList<DT> L)
 {
 	int i;
-	for (i = 0; i < L.length; i++)					// 依位序输出元素值
+	for (i = 1; i <= L.length; i++)					// 依位序输出元素值
 	{
-		cout << L.elem[i] << "\t";
+		cout << L.elem[i - 1] << "\t";
 
 	}
 	cout << endl;

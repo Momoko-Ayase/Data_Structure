@@ -1,33 +1,33 @@
-// 2-4-PolyAdd-Ï¡Êè¶àÏîÊ½ÇóºÍ
+// 2-4-PolyAdd-ç¨€ç–å¤šé¡¹å¼æ±‚å’Œ
 // WARNING: /sdl is disabled to pass the compilation process.
 
 #include<iostream>//cout,cin
 using namespace std;
 
-struct PolyNode											// ¶àÏîÊ½½áµã
+struct PolyNode											// å¤šé¡¹å¼ç»“ç‚¹
 {
-	float coef;											// ÏµÊı
-	int exp;											// Ö¸Êı
-	PolyNode* next;										// Ö¸ÏòÏÂÒ»Ïî½áµã
+	float coef;											// ç³»æ•°
+	int exp;											// æŒ‡æ•°
+	PolyNode* next;										// æŒ‡å‘ä¸‹ä¸€é¡¹ç»“ç‚¹
 };
 
 void InitPoly(PolyNode*& L)
-{ //´´½¨Ò»¿Õ¶àÏîÊ½
+{ //åˆ›å»ºä¸€ç©ºå¤šé¡¹å¼
 	L = new PolyNode;
 	L->next = NULL;
 }
 
-bool CreatePoly(PolyNode*& L, int n)                   // Î²²å·¨´´½¨nÏî¶àÏîÊ½
+bool CreatePoly(PolyNode*& L, int n)                   // å°¾æ’æ³•åˆ›å»ºné¡¹å¤šé¡¹å¼
 {
 	int i;
 	PolyNode* p, * s;
 	p = L;
-	for (i = 1; i <= n; i++)                           // °´ÃİÉıĞòÒÀ´ÎÊäÈë¶àÏîÊ½¸÷ÏîÏµÊıÓëÃİÖ¸Êı
+	for (i = 1; i <= n; i++)                           // æŒ‰å¹‚å‡åºä¾æ¬¡è¾“å…¥å¤šé¡¹å¼å„é¡¹ç³»æ•°ä¸å¹‚æŒ‡æ•°
 	{
 		s = new PolyNode;
 		if (!s)
 			return false;
-		cout << "ÊäÈëµÚ" << i << "ÏîÏµÊıºÍÃİÖ¸Êı£º";
+		cout << "è¾“å…¥ç¬¬" << i << "é¡¹ç³»æ•°å’Œå¹‚æŒ‡æ•°ï¼š";
 		cin >> s->coef >> s->exp;
 		s->next = p->next;
 		p->next = s;
@@ -37,13 +37,13 @@ bool CreatePoly(PolyNode*& L, int n)                   // Î²²å·¨´´½¨nÏî¶àÏîÊ½
 }
 
 
-//ÏÔÊ¾¶à¶¥Ê½
-void DispPoly(PolyNode* L)								// Í¨¹ı±éÀú½áµã£¬Êä³ö¶àÏîÊ½
+//æ˜¾ç¤ºå¤šé¡¶å¼
+void DispPoly(PolyNode* L)								// é€šè¿‡éå†ç»“ç‚¹ï¼Œè¾“å‡ºå¤šé¡¹å¼
 {
 	PolyNode* p;
-	if (!L)  // ¿Õ±í£¬·µ»Ø
+	if (!L)  // ç©ºè¡¨ï¼Œè¿”å›
 	{
-		cout << "¿Õ±í!";
+		cout << "ç©ºè¡¨!";
 		return;
 	}
 	p = L->next;
@@ -56,100 +56,100 @@ void DispPoly(PolyNode* L)								// Í¨¹ı±éÀú½áµã£¬Êä³ö¶àÏîÊ½
 	cout << endl;
 }
 
-//¡¾Ëã·¨2.26¡¿											Çó¶àÏîÊ½LA=LA+LB
+//ã€ç®—æ³•2.26ã€‘											æ±‚å¤šé¡¹å¼LA=LA+LB
 void PolyAdd(PolyNode*& LA, PolyNode*& LB)
 {
 	float sum;
-	PolyNode* pa, * pb, * qa, * qb;							// 1.¹¤×÷Ö¸Õë³õÊ¼»¯
+	PolyNode* pa, * pb, * qa, * qb;							// 1.å·¥ä½œæŒ‡é’ˆåˆå§‹åŒ–
 	pa = LA;
 	qa = pa->next;
 	pb = LB;
 	qb = pb->next;
-	while (qa != NULL && qb != NULL)						// 2. Á½±í¾ù²»¿Õ
+	while (qa != NULL && qb != NULL)						// 2. ä¸¤è¡¨å‡ä¸ç©º
 	{
-		if (qa->exp < qb->exp)							// 2.1 LAµÄÃİĞ¡
-		{												// pa¡¢qaºóÒÆ
+		if (qa->exp < qb->exp)							// 2.1 LAçš„å¹‚å°
+		{												// paã€qaåç§»
 			pa = qa; qa = qa->next;
 		}
-		else if (qa->exp > qb->exp)					//2.2 LA Ãİ´ó
+		else if (qa->exp > qb->exp)					//2.2 LA å¹‚å¤§
 		{
-			pb->next = qb->next;							// qbÁ´½Óµ½paÖ®ºó
+			pb->next = qb->next;							// qbé“¾æ¥åˆ°paä¹‹å
 			qb->next = qa;
 			pa->next = qb;
 			pa = qb;
 			qb = pb->next;
 		}
-		else												// 2.3 LAÓëLBÃİÏàÍ¬
+		else												// 2.3 LAä¸LBå¹‚ç›¸åŒ
 		{
-			sum = qa->coef + qb->coef;						// ¼ÆËãÏµÊıºÍ
-			if (sum != 0)									// 2.3.1 ÏµÊıºÍ²»Îª0
+			sum = qa->coef + qb->coef;						// è®¡ç®—ç³»æ•°å’Œ
+			if (sum != 0)									// 2.3.1 ç³»æ•°å’Œä¸ä¸º0
 			{
-				qa->coef = sum;							// 2.3.1.1 qa->coef¡ûsum
-				pa = qa; qa = qa->next;						// 2.3.1.2 pa£¬qaºóÒÆ
+				qa->coef = sum;							// 2.3.1.1 qa->coefâ†sum
+				pa = qa; qa = qa->next;						// 2.3.1.2 paï¼Œqaåç§»
 				pb->next = qb->next;
-				delete qb;								// 2.3.1.3É¾³ıqb£¬
+				delete qb;								// 2.3.1.3åˆ é™¤qbï¼Œ
 				qb = pb->next;
 			}
-			else										// 2.3.2 ÏµÊıºÍÎª0
+			else										// 2.3.2 ç³»æ•°å’Œä¸º0
 			{
 				pa->next = qa->next;
-				delete qa;								// 2.3.2.1 É¾³ıqa£¬
-				qa = pa->next;								// 2.3.2.2 qaÎªpaºó¼Ì£»
+				delete qa;								// 2.3.2.1 åˆ é™¤qaï¼Œ
+				qa = pa->next;								// 2.3.2.2 qaä¸ºpaåç»§ï¼›
 				pb->next = qb->next;
-				delete qb;								// 2.3.2.3 É¾³ıqb
-				qb = pb->next;								// 2.3.2.4 qbÎªpbµÄºó¼Ì
+				delete qb;								// 2.3.2.3 åˆ é™¤qb
+				qb = pb->next;								// 2.3.2.4 qbä¸ºpbçš„åç»§
 			}
 		}
 	}//while
-	if (qb != NULL)											// 3. LA´¦Àí½áÊø£¬LBÎ´½áÊø
-		pa->next = qb;										// 3.1 qbÁ´µ½qaÖ®ºó
-	delete pb;											// 3.2 É¾³ılbÍ·½áµã
+	if (qb != NULL)											// 3. LAå¤„ç†ç»“æŸï¼ŒLBæœªç»“æŸ
+		pa->next = qb;										// 3.1 qbé“¾åˆ°qaä¹‹å
+	delete pb;											// 3.2 åˆ é™¤lbå¤´ç»“ç‚¹
 	LB = NULL;
 
 }//Add
 
 
-void DestroyPoly(PolyNode*& L)							// ÊÍ·ÅÁ´±íËùÕ¼¿Õ¼ä
+void DestroyPoly(PolyNode*& L)							// é‡Šæ”¾é“¾è¡¨æ‰€å ç©ºé—´
 {
 	PolyNode* p;
-	while (L)											// ´ÓÍ·½áµã¿ªÊ¼£¬ÒÀ´ÎÊÍ·Å½áµã
+	while (L)											// ä»å¤´ç»“ç‚¹å¼€å§‹ï¼Œä¾æ¬¡é‡Šæ”¾ç»“ç‚¹
 	{
 		p = L;
 		L = L->next;
 		delete p;
 	}
-	L = NULL;												// Í·½áµãÖ¸Ïò¿Õ
+	L = NULL;												// å¤´ç»“ç‚¹æŒ‡å‘ç©º
 }
 
-void SortPoly(PolyNode*& L)						// ½«¶àÏîÊ½°´ÃİÉıĞòÅÅĞò
+void SortPoly(PolyNode*& L)						// å°†å¤šé¡¹å¼æŒ‰å¹‚å‡åºæ’åº
 {
-	PolyNode* p1, * p2, * q, * r;					// ²ÉÓÃ²åÈëÅÅĞòËã·¨
-	p1 = L; p2 = p1->next;						// p1ÊÇp2µÄÇ°Çı
-	if (p2 == NULL || p2->next == NULL)		// ¿Õ±í»òÖ»ÓĞ1ÏîµÄ¶àÏîÊ½£¬²»ĞèÒªÅÅĞò
+	PolyNode* p1, * p2, * q, * r;					// é‡‡ç”¨æ’å…¥æ’åºç®—æ³•
+	p1 = L; p2 = p1->next;						// p1æ˜¯p2çš„å‰é©±
+	if (p2 == NULL || p2->next == NULL)		// ç©ºè¡¨æˆ–åªæœ‰1é¡¹çš„å¤šé¡¹å¼ï¼Œä¸éœ€è¦æ’åº
 	{
-		cout << "²»ĞèÒªÅÅĞò!" << endl;
+		cout << "ä¸éœ€è¦æ’åº!" << endl;
 		return;
 	}
-	r = L->next;								// ÓĞĞò±í±íÎ²
-	q = r->next;								// qÎªµ±Ç°´¦ÀíÏî£¬ÓĞĞò±íµÄºóÒ»Ïî
-	while (q)								// Î´´¦ÀíÍê
-	{										// ´ÓÊ×Ôª½áµã¿ªÊ¼²éÕÒ²åÈëµã
+	r = L->next;								// æœ‰åºè¡¨è¡¨å°¾
+	q = r->next;								// qä¸ºå½“å‰å¤„ç†é¡¹ï¼Œæœ‰åºè¡¨çš„åä¸€é¡¹
+	while (q)								// æœªå¤„ç†å®Œ
+	{										// ä»é¦–å…ƒç»“ç‚¹å¼€å§‹æŸ¥æ‰¾æ’å…¥ç‚¹
 		p1 = L; p2 = p1->next;
-		while (q->exp > p2->exp && p2 != q)    // µ±Ç°½áµãÃİ´ó£¬²åÈëµãºóÒÆ
+		while (q->exp > p2->exp && p2 != q)    // å½“å‰ç»“ç‚¹å¹‚å¤§ï¼Œæ’å…¥ç‚¹åç§»
 		{
 			p1 = p2; p2 = p2->next;
 		}
-		if (p2 == q)					// µ±Ç°ÏîÎŞĞèÒÆ¶¯
+		if (p2 == q)					// å½“å‰é¡¹æ— éœ€ç§»åŠ¨
 		{
-			r = q;					// ÓĞĞò±í±íÎ²Ë³ÒÆ
+			r = q;					// æœ‰åºè¡¨è¡¨å°¾é¡ºç§»
 		}
-		else						// q²åÈëµ½p2Ç°Ãæ
+		else						// qæ’å…¥åˆ°p2å‰é¢
 		{
-			r->next = q->next;		// Õª³ıq½áµã
-			q->next = p1->next;				// ÔÚp1ºó²åÈë½áµãq	
+			r->next = q->next;		// æ‘˜é™¤qç»“ç‚¹
+			q->next = p1->next;				// åœ¨p1åæ’å…¥ç»“ç‚¹q	
 			p1->next = q;
 		}
-		q = r->next;				// ÏÂÒ»¸öĞè´¦ÀíµÄÏî
+		q = r->next;				// ä¸‹ä¸€ä¸ªéœ€å¤„ç†çš„é¡¹
 
 	}
 	return;
@@ -158,81 +158,81 @@ void SortPoly(PolyNode*& L)						// ½«¶àÏîÊ½°´ÃİÉıĞòÅÅĞò
 
 
 void dispmenu()
-{//ÏÔÊ¾Ö÷²Ëµ¥
+{//æ˜¾ç¤ºä¸»èœå•
 	cout << endl;
-	cout << "*** Ï¡Êè¶àÏîÊ½ÇóºÍ ***\n";
-	cout << "1-´´½¨¶àÏîÊ½A\n";
-	cout << "2-´´½¨¶àÏîÊ½B\n";
-	cout << "3-¶àÏîÊ½ÇóºÍA=A+B\n";
-	cout << "4-ÏÔÊ¾¶àÏîÊ½\n";
-	cout << "0-ÍË³ö\n";
+	cout << "*** ç¨€ç–å¤šé¡¹å¼æ±‚å’Œ ***\n";
+	cout << "1-åˆ›å»ºå¤šé¡¹å¼A\n";
+	cout << "2-åˆ›å»ºå¤šé¡¹å¼B\n";
+	cout << "3-å¤šé¡¹å¼æ±‚å’ŒA=A+B\n";
+	cout << "4-æ˜¾ç¤ºå¤šé¡¹å¼\n";
+	cout << "0-é€€å‡º\n";
 }
 
-//Ö÷º¯Êı
+//ä¸»å‡½æ•°
 int main()
 {
 	int m, n;
 	char c;
 	PolyNode* LA, * LB;
-	system("cls");											// Ö´ĞĞÏµÍ³ÃüÁîcls£¬ÇåÆÁ
+	system("cls");											// æ‰§è¡Œç³»ç»Ÿå‘½ä»¤clsï¼Œæ¸…å±
 
 	int choice;
 	do
 	{
-		dispmenu();											// ÏÔÊ¾Ö÷²Ëµ¥
-		cout << "Enter choice(1~4,0 ÍË³ö):";
+		dispmenu();											// æ˜¾ç¤ºä¸»èœå•
+		cout << "Enter choice(1~4,0 é€€å‡º):";
 		cin >> choice;
 		switch (choice)
 		{
-		case 1:											// ´´½¨¶àÏîÊ½A
+		case 1:											// åˆ›å»ºå¤šé¡¹å¼A
 			InitPoly(LA);
-			cout << "ÇëÊäÈë¶àÏîÊ½ A µÄÏîÊı£º ";
+			cout << "è¯·è¾“å…¥å¤šé¡¹å¼ A çš„é¡¹æ•°ï¼š ";
 			cin >> m;
 			CreatePoly(LA, m);
-			cout << "´´½¨µÄ¶àÏîÊ½ A Îª£º" << endl;
+			cout << "åˆ›å»ºçš„å¤šé¡¹å¼ A ä¸ºï¼š" << endl;
 			DispPoly(LA);
 			SortPoly(LA);
-			cout << "ÅÅĞòºó¶àÏîÊ½ A Îª£º" << endl;
+			cout << "æ’åºåå¤šé¡¹å¼ A ä¸ºï¼š" << endl;
 			DispPoly(LA);
 			break;
-		case 2:											// ´´½¨¶àÏîÊ½B
+		case 2:											// åˆ›å»ºå¤šé¡¹å¼B
 			InitPoly(LB);
-			cout << "ÇëÊäÈë¶àÏîÊ½BµÄÏîÊı£º ";
+			cout << "è¯·è¾“å…¥å¤šé¡¹å¼Bçš„é¡¹æ•°ï¼š ";
 			cin >> n;
 			CreatePoly(LB, n);
-			cout << "´´½¨µÄ¶àÏîÊ½BÎª£º" << endl;
+			cout << "åˆ›å»ºçš„å¤šé¡¹å¼Bä¸ºï¼š" << endl;
 			DispPoly(LB);
 			SortPoly(LB);
-			cout << "ÅÅĞòºó¶àÏîÊ½ B Îª£º" << endl;
+			cout << "æ’åºåå¤šé¡¹å¼ B ä¸ºï¼š" << endl;
 			DispPoly(LB);
 			break;
-		case 3:											//¶àÏîÊ½ÇóºÍ
+		case 3:											//å¤šé¡¹å¼æ±‚å’Œ
 			cout << "A = ";
 			DispPoly(LA);
 			cout << "B = ";
 			DispPoly(LB);
-			PolyAdd(LA, LB);								// Çó¶àÏîÊ½ LA=LA+LB
-			cout << "A + B = ";			// ÏÔÊ¾½á¹û
+			PolyAdd(LA, LB);								// æ±‚å¤šé¡¹å¼ LA=LA+LB
+			cout << "A + B = ";			// æ˜¾ç¤ºç»“æœ
 			DispPoly(LA);
 			cout << endl;
 			break;
-		case 4:											// ÏÔÊ¾¶àÏîÊ½
-			cout << "Ñ¡ÔñÒªÏÔÊ¾µÄ¶àÏîÊ½ A »ò B£º" << endl;
+		case 4:											// æ˜¾ç¤ºå¤šé¡¹å¼
+			cout << "é€‰æ‹©è¦æ˜¾ç¤ºçš„å¤šé¡¹å¼ A æˆ– Bï¼š" << endl;
 			cin >> c;
 			if (c == 'A' || c == 'a')
 				DispPoly(LA);
 			else if (c == 'B' || c == 'b')
 				DispPoly(LB);
 			else
-				cout << "Ñ¡Ôñ´íÎó£¡" << endl;
+				cout << "é€‰æ‹©é”™è¯¯ï¼" << endl;
 			break;
-		case 5:											//ÍË³ö
+		case 5:											//é€€å‡º
 			DestroyPoly(LA);
 			DestroyPoly(LB);
-			cout << "½áÊøÔËĞĞbye-bye!" << endl;
+			cout << "ç»“æŸè¿è¡Œbye-bye!" << endl;
 			break;
-		default:										//·Ç·¨Ñ¡Ôñ
-			cout << "·Ç·¨Ñ¡Ôñ!\n";
+		default:										//éæ³•é€‰æ‹©
+			cout << "éæ³•é€‰æ‹©!\n";
 			break;
 		}
 	} while (choice != 0);

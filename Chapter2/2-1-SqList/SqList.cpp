@@ -1,4 +1,4 @@
-// 2-1-SqList-Ë³Ğò±í
+// 2-1-SqList-é¡ºåºè¡¨
 
 #include <iostream>//cout,cin
 using namespace std;
@@ -8,147 +8,147 @@ char pause;
 
 
 void dispmenu() {
-	//ÏÔÊ¾Ö÷²Ëµ¥
+	//æ˜¾ç¤ºä¸»èœå•
 	cout << endl;
-	cout << "***  Ë³ Ğò ±í   ***\n";
-	cout << " 1-³õÊ¼»¯Ë³Ğò±í\n";
-	cout << " 2-´´½¨Ë³Ğò±í\n";
-	cout << " 3-»ñÈ¡µÚi¸öÔªËØ\n";
-	cout << " 4-°´Öµ²éÕÒÔªËØÎ»Ğò\n";
-	cout << " 5-²åÈëµÚi¸öÔªËØ\n";
-	cout << " 6-É¾³ıµÚi¸öÔªËØ\n";
-	cout << " 7-ĞŞ¸ÄµÚi¸öÔªËØ\n";
-	cout << " 8-Çå¿Õ±í\n";
-	cout << " 9-²â±í³¤\n";
-	cout << " 10-²â±í¿Õ\n";
-	cout << " 11-²â±íÂú\n";
-	cout << " 12-ÏÔÊ¾±í\n";
-	cout << " 13-°´Öµ²éÕÒÇ°Çı\n";
-	cout << " 0-ÍË³ö\n";
+	cout << "***  é¡º åº è¡¨   ***\n";
+	cout << " 1-åˆå§‹åŒ–é¡ºåºè¡¨\n";
+	cout << " 2-åˆ›å»ºé¡ºåºè¡¨\n";
+	cout << " 3-è·å–ç¬¬iä¸ªå…ƒç´ \n";
+	cout << " 4-æŒ‰å€¼æŸ¥æ‰¾å…ƒç´ ä½åº\n";
+	cout << " 5-æ’å…¥ç¬¬iä¸ªå…ƒç´ \n";
+	cout << " 6-åˆ é™¤ç¬¬iä¸ªå…ƒç´ \n";
+	cout << " 7-ä¿®æ”¹ç¬¬iä¸ªå…ƒç´ \n";
+	cout << " 8-æ¸…ç©ºè¡¨\n";
+	cout << " 9-æµ‹è¡¨é•¿\n";
+	cout << " 10-æµ‹è¡¨ç©º\n";
+	cout << " 11-æµ‹è¡¨æ»¡\n";
+	cout << " 12-æ˜¾ç¤ºè¡¨\n";
+	cout << " 13-æŒ‰å€¼æŸ¥æ‰¾å‰é©±\n";
+	cout << " 0-é€€å‡º\n";
 }
 
 
-//Ö÷º¯Êı
+//ä¸»å‡½æ•°
 void main() {
 	int i;
 	int e, pre_e;
-	SqList<int> L;										//½¨Á¢ÈİÁ¿Îª20¡¢ÔªËØÀàĞÍÎªÕûĞÍµÄ¿ÕË³Ğò±í
-	system("cls");										//Ö´ĞĞÏµÍ³ÃüÁîcls£¬ÇåÆÁ
+	SqList<int> L;										//å»ºç«‹å®¹é‡ä¸º20ã€å…ƒç´ ç±»å‹ä¸ºæ•´å‹çš„ç©ºé¡ºåºè¡¨
+	system("cls");										//æ‰§è¡Œç³»ç»Ÿå‘½ä»¤clsï¼Œæ¸…å±
 
 	int choice;
 	do {
-		dispmenu();										//ÏÔÊ¾Ö÷²Ëµ¥
-		cout << "Enter choice(1~12£¬0 ÍË³ö):";
+		dispmenu();										//æ˜¾ç¤ºä¸»èœå•
+		cout << "Enter choice(1~12ï¼Œ0 é€€å‡º):";
 		cin >> choice;
 		switch (choice) {
-		case 1:										//³õÊ¼»¯ÏßĞÔ±í
-			cout << "ÇëÊäÈëÒª´´½¨µÄË³Ğò±íµÄ³¤¶È£º";
+		case 1:										//åˆå§‹åŒ–çº¿æ€§è¡¨
+			cout << "è¯·è¾“å…¥è¦åˆ›å»ºçš„é¡ºåºè¡¨çš„é•¿åº¦ï¼š";
 			cin >> i;
 			cout << endl;
 			InitList(L, i);
-			cout << endl << "´´½¨³É¹¦£¡" << endl;
+			cout << endl << "åˆ›å»ºæˆåŠŸï¼" << endl;
 			break;
-		case 2:									//´´½¨ÏßĞÔ±í
-			cout << "ÇëÊäÈëÒª´´½¨µÄÔªËØ¸öÊı:";
+		case 2:									//åˆ›å»ºçº¿æ€§è¡¨
+			cout << "è¯·è¾“å…¥è¦åˆ›å»ºçš„å…ƒç´ ä¸ªæ•°:";
 			cin >> i;
 			cout << endl;
 			CreateList(L, i);
-			cout << "´´½¨µÄË³Ğò±íÔªËØÎª£º\n";     //ÏÔÊ¾±íÔªËØ
+			cout << "åˆ›å»ºçš„é¡ºåºè¡¨å…ƒç´ ä¸ºï¼š\n";     //æ˜¾ç¤ºè¡¨å…ƒç´ 
 			DispList(L);
 			cout << endl;
 			break;
-		case 3:										//»ñÈ¡µÚi¸öÔªËØ
-			cout << "ÇëÊäÈëÔªËØĞòºÅ:";
+		case 3:										//è·å–ç¬¬iä¸ªå…ƒç´ 
+			cout << "è¯·è¾“å…¥å…ƒç´ åºå·:";
 			cin >> i;
 			cout << endl;
 			if (GetElem_i(L, i, e))
-				cout << endl << "µÚ" << i << "¸öÔªËØÎª:" << e << endl;
+				cout << endl << "ç¬¬" << i << "ä¸ªå…ƒç´ ä¸º:" << e << endl;
 			else
-				cout << endl << "ÔªËØ²»´æÔÚ£¡" << endl;
+				cout << endl << "å…ƒç´ ä¸å­˜åœ¨ï¼" << endl;
 			break;
-		case 4:									//°´Öµ²éÕÒ
-			cout << "ÇëÊäÈëÒª²éÑ¯µÄÔªËØÖµ:";
+		case 4:									//æŒ‰å€¼æŸ¥æ‰¾
+			cout << "è¯·è¾“å…¥è¦æŸ¥è¯¢çš„å…ƒç´ å€¼:";
 			cin >> e;
 			i = LocateElem_e(L, e);
 			if (i)
-				cout << endl << e << "ÊÇµÚ" << i << "¸öÊı¾İÔªËØ" << endl;
+				cout << endl << e << "æ˜¯ç¬¬" << i << "ä¸ªæ•°æ®å…ƒç´ " << endl;
 			else
-				cout << endl << "²»´æÔÚ´ËÔªËØ£¡" << endl;
+				cout << endl << "ä¸å­˜åœ¨æ­¤å…ƒç´ ï¼" << endl;
 			break;
-		case 5:									// ÔÚµÚi¸öÎ»ÖÃ²åÈëÔªËØ
-			cout << "ÊäÈë²åÈëÎ»ÖÃ£º" << endl;
+		case 5:									// åœ¨ç¬¬iä¸ªä½ç½®æ’å…¥å…ƒç´ 
+			cout << "è¾“å…¥æ’å…¥ä½ç½®ï¼š" << endl;
 			cin >> i;
-			cout << "ÊäÈë²åÈëÔªËØÖµ£º" << endl;
+			cout << "è¾“å…¥æ’å…¥å…ƒç´ å€¼ï¼š" << endl;
 			cin >> e;
 			if (InsertElem_i(L, i, e)) {
-				cout << endl << "²åÈë³É¹¦£¡" << endl;
+				cout << endl << "æ’å…¥æˆåŠŸï¼" << endl;
 				DispList(L);
 			}
 			else
-				cout << endl << "²åÈë²»³É¹¦£¡" << endl;;
+				cout << endl << "æ’å…¥ä¸æˆåŠŸï¼" << endl;;
 			break;
-		case 6:									//É¾³ıµÚi¸öÔªËØ
-			cout << "ÊäÈëÉ¾³ıÔªËØÎ»ÖÃ£º" << endl;
+		case 6:									//åˆ é™¤ç¬¬iä¸ªå…ƒç´ 
+			cout << "è¾“å…¥åˆ é™¤å…ƒç´ ä½ç½®ï¼š" << endl;
 			cin >> i;
 			if (DeleElem_i(L, i)) {
-				cout << endl << "É¾³ı³É¹¦£¡" << endl;
+				cout << endl << "åˆ é™¤æˆåŠŸï¼" << endl;
 				DispList(L);
 			}
 			else
-				cout << endl << "É¾³ıÊ§°Ü£¡" << endl;
+				cout << endl << "åˆ é™¤å¤±è´¥ï¼" << endl;
 			break;
-		case 7:									//ĞŞ¸ÄµÚi¸öÔªËØµÄÖµ
-			cout << "ÊäÈëĞŞ¸ÄÔªËØÎ»ÖÃ£º" << endl;
+		case 7:									//ä¿®æ”¹ç¬¬iä¸ªå…ƒç´ çš„å€¼
+			cout << "è¾“å…¥ä¿®æ”¹å…ƒç´ ä½ç½®ï¼š" << endl;
 			cin >> i;
-			cout << "ÊäÈëĞÂÔªËØÖµ£º" << endl;
+			cout << "è¾“å…¥æ–°å…ƒç´ å€¼ï¼š" << endl;
 			cin >> e;
 			if (PutElem(L, i, e)) {
-				cout << endl << "ĞŞ¸Ä³É¹¦£¡" << endl;
+				cout << endl << "ä¿®æ”¹æˆåŠŸï¼" << endl;
 				DispList(L);
 			}
 			else
-				cout << endl << "ĞŞ¸ÄÊ§°Ü£¡" << endl;
+				cout << endl << "ä¿®æ”¹å¤±è´¥ï¼" << endl;
 			break;
-		case 8:									// Çå¿Õ±í
+		case 8:									// æ¸…ç©ºè¡¨
 			ClearList(L);
 			break;
-		case 9:									// ²â±í³¤
-			cout << "±í³¤Îª£º" << ListLength(L) << endl;
+		case 9:									// æµ‹è¡¨é•¿
+			cout << "è¡¨é•¿ä¸ºï¼š" << ListLength(L) << endl;
 			break;
-		case 10:									//²â±í¿Õ
+		case 10:									//æµ‹è¡¨ç©º
 			if (ListEmpty(L))
-				cout << endl << "¿Õ±í£¡" << endl;
+				cout << endl << "ç©ºè¡¨ï¼" << endl;
 			else
-				cout << endl << "²»ÊÇ¿Õ±í£¡" << endl;
+				cout << endl << "ä¸æ˜¯ç©ºè¡¨ï¼" << endl;
 			break;
-		case 11:									// Î´±íÂú
+		case 11:									// æœªè¡¨æ»¡
 			if (ListFull(L))
-				cout << endl << "±íÂú£¡" << endl;
+				cout << endl << "è¡¨æ»¡ï¼" << endl;
 			else
-				cout << endl << "±í²»Âú£¡" << endl;
+				cout << endl << "è¡¨ä¸æ»¡ï¼" << endl;
 			break;
-		case 12:									//±éÀúÏÔÊ¾±í
+		case 12:									//éå†æ˜¾ç¤ºè¡¨
 			DispList(L);
 			cout << endl;
 			cin.get(pause);
 			system("pause");
 			break;
 		case 13:
-			cout << "²âÊÔË³Ğò±íÎª\n";
+			cout << "æµ‹è¯•é¡ºåºè¡¨ä¸º\n";
 			DispList(L);
-			cout << "ÊäÈë²éÕÒÇ°ÇıµÄÔªËØÖµ£º\n";
+			cout << "è¾“å…¥æŸ¥æ‰¾å‰é©±çš„å…ƒç´ å€¼ï¼š\n";
 			cin >> e;
 			if (PriorElem_e(L, e, pre_e))
-				cout << e << "µÄÇ°ÇıÔªËØÎª£º" << pre_e << endl;
+				cout << e << "çš„å‰é©±å…ƒç´ ä¸ºï¼š" << pre_e << endl;
 			else
-				cout << e << "ÎŞÇ°ÇıÔªËØ£¡" << endl;
+				cout << e << "æ— å‰é©±å…ƒç´ ï¼" << endl;
 			break;
-		case 0:  //ÍË³ö
+		case 0:  //é€€å‡º
 
-			cout << "½áÊøÔËĞĞbye-bye!" << endl;
+			cout << "ç»“æŸè¿è¡Œbye-bye!" << endl;
 			break;
-		default:									//ÎŞĞ§Ñ¡Ôñ
-			cout << "ÎŞĞ§Ñ¡Ôñ!\n";
+		default:									//æ— æ•ˆé€‰æ‹©
+			cout << "æ— æ•ˆé€‰æ‹©!\n";
 			break;
 		}
 	} while (choice != 0);

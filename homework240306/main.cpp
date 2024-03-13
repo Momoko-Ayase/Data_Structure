@@ -7,10 +7,10 @@ bool CreateListNoRepeat(SqList<DT>& L, int n)
 	int i;
 	if (n > L.size)
 	{
-		cout << "ÔªËØ¸öÊý´óÓÚ±í³¤£¬²»ÄÜ´´½¨£¡" << endl;
+		cout << "å…ƒç´ ä¸ªæ•°å¤§äºŽè¡¨é•¿ï¼Œä¸èƒ½åˆ›å»ºï¼" << endl;
 		return false;
 	}
-	cout << "ÇëÒÀ´ÎÊäÈë" << n << "¸öÔªËØÖµ£º" << endl;
+	cout << "è¯·ä¾æ¬¡è¾“å…¥" << n << "ä¸ªå…ƒç´ å€¼ï¼š" << endl;
 	for (i = 1; i <= n; i++)
 	{
 		int temp;
@@ -53,22 +53,22 @@ int main()
 	InitList(A, 32);
 	InitList(B, 32);
 	int length_a, length_b;
-	cout << "ÇëÊäÈë¼¯ºÏAµÄÔªËØ¸öÊý: ";
+	cout << "è¯·è¾“å…¥é›†åˆAçš„å…ƒç´ ä¸ªæ•°: ";
 	cin >> length_a;
 	CreateListNoRepeat(A, length_a);
-	cout << "ÇëÊäÈë¼¯ºÏBµÄÔªËØ¸öÊý: ";
+	cout << "è¯·è¾“å…¥é›†åˆBçš„å…ƒç´ ä¸ªæ•°: ";
 	cin >> length_b;
 	CreateListNoRepeat(B, length_b);
-	cout << "¼¯ºÏA: ";
+	cout << "é›†åˆA: ";
 	DispList(A);
-	cout << "¼¯ºÏB: ";
+	cout << "é›†åˆB: ";
 	DispList(B);
 	Union(A, B);
-	cout << "A¡ÈB: ";
+	cout << "AâˆªB: ";
 	DispList(A);
 	A.length = length_a; // Reset A to its original length
 	Intersection(A, B);
-	cout << "A¡ÉB: ";
+	cout << "Aâˆ©B: ";
 	DispList(A);
 	DestroyList(A);
 	DestroyList(B);

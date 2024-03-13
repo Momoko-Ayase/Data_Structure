@@ -1,4 +1,4 @@
-// 2-3-SqListApp-Ë³Ğò±íÓ¦ÓÃ
+// 2-3-SqListApp-é¡ºåºè¡¨åº”ç”¨
 
 #include<iostream>//cout,cin
 using namespace std;
@@ -7,35 +7,35 @@ using namespace std;
 char pause;
 
 void dispmenu()
-{														// ÏÔÊ¾Ö÷²Ëµ¥
-	cout << "\n*** Ë³Ğò±íµÄÓ¦ÓÃ ***\n";
-	cout << " 1-¼¯ºÏ²¢A=A¡ÈB\n";
-	cout << " 2-Ë³Ğò±íÄæÖÃ\n";
-	cout << " 3-¶àÏîÊ½ÇóºÍ\n";
-	cout << " 0-ÍË³ö\n";
+{														// æ˜¾ç¤ºä¸»èœå•
+	cout << "\n*** é¡ºåºè¡¨çš„åº”ç”¨ ***\n";
+	cout << " 1-é›†åˆå¹¶A=AâˆªB\n";
+	cout << " 2-é¡ºåºè¡¨é€†ç½®\n";
+	cout << " 3-å¤šé¡¹å¼æ±‚å’Œ\n";
+	cout << " 0-é€€å‡º\n";
 }
 
 
-//Ëã·¨2.11
+//ç®—æ³•2.11
 template <class DT>
-void Union(SqList<DT>& La, SqList<DT> Lb)				// ÇóLa=La¡ÈLa
+void Union(SqList<DT>& La, SqList<DT> Lb)				// æ±‚La=LaâˆªLa
 {
 	DT e;
 	int k, i;
-	for (i = 1; i <= Lb.length; i++)						// É¨ÃèLb
+	for (i = 1; i <= Lb.length; i++)						// æ‰«æLb
 	{
-		GetElem_i(Lb, i, e);								// 1. »ñÈ¡LbµÄµÚi¸öÔªËØ
-		if (!LocateElem_e(La, e))							// 2.Èç¹ûLaÖĞÎŞ´ËÔªËØ
+		GetElem_i(Lb, i, e);								// 1. è·å–Lbçš„ç¬¬iä¸ªå…ƒç´ 
+		if (!LocateElem_e(La, e))							// 2.å¦‚æœLaä¸­æ— æ­¤å…ƒç´ 
 		{
-			k = La.length + 1;								// Ìí¼ÓÔÚLaµÄ±íÎ²
+			k = La.length + 1;								// æ·»åŠ åœ¨Laçš„è¡¨å°¾
 			InsertElem_i(La, k, e);
 		}
 	}
 }
 
-//Ëã·¨2.12
+//ç®—æ³•2.12
 template <class DT>
-void ReverseSqList(SqList<DT>& L)						// Ë³Ğò±íÔªËØÄæÖÃ
+void ReverseSqList(SqList<DT>& L)						// é¡ºåºè¡¨å…ƒç´ é€†ç½®
 {
 	DT t;
 	int i;
@@ -48,28 +48,28 @@ void ReverseSqList(SqList<DT>& L)						// Ë³Ğò±íÔªËØÄæÖÃ
 	return;
 }
 
-//Ëã·¨2.13												¶àÏîÊ½ÇóºÍ lc=la+lb
+//ç®—æ³•2.13												å¤šé¡¹å¼æ±‚å’Œ lc=la+lb
 void PolyAdd(SqList<float> la, SqList<float> lb, SqList<float>& lc)
 {
-	int i = 0;											// 1.³õÊ¼»¯£¬ÉèÖÃ´¦ÀíÆğÊ¼Î»ÖÃ
-	while (i < la.length && i < lb.length)					// 2.Á½¸ö¶àÏîÊ½¾ùÎ´´¦ÀíÍê
+	int i = 0;											// 1.åˆå§‹åŒ–ï¼Œè®¾ç½®å¤„ç†èµ·å§‹ä½ç½®
+	while (i < la.length && i < lb.length)					// 2.ä¸¤ä¸ªå¤šé¡¹å¼å‡æœªå¤„ç†å®Œ
 	{
-		lc.elem[i] = la.elem[i] + lb.elem[i];				// ÏàÍ¬Î»ĞòÉÏµÄÏµÊıÏà¼Ó
+		lc.elem[i] = la.elem[i] + lb.elem[i];				// ç›¸åŒä½åºä¸Šçš„ç³»æ•°ç›¸åŠ 
 		i++;
 
 	}
-	if (la.length > lb.length)								// 3.laÎ´´¦ÀíÍê£¬lbÒÑ´¦ÀíÍê
+	if (la.length > lb.length)								// 3.laæœªå¤„ç†å®Œï¼Œlbå·²å¤„ç†å®Œ
 	{
-		while (i < la.length)								// lcÈ¡laÖĞÊ£ÓàÏî
+		while (i < la.length)								// lcå–laä¸­å‰©ä½™é¡¹
 		{
 			lc.elem[i] = la.elem[i];
 			i++;
 
 		}
 	}
-	else												// 3.lbÎ´´¦ÀíÍê£¬laÒÑ´¦ÀíÍê
+	else												// 3.lbæœªå¤„ç†å®Œï¼Œlaå·²å¤„ç†å®Œ
 	{
-		while (i < lb.length)								// lcÈ¡lbÖĞÊ£ÓàÏî
+		while (i < lb.length)								// lcå–lbä¸­å‰©ä½™é¡¹
 		{
 			lc.elem[i] = lb.elem[i];
 			i++;
@@ -78,7 +78,7 @@ void PolyAdd(SqList<float> la, SqList<float> lb, SqList<float>& lc)
 	}
 }
 
-//ÏÔÊ¾¶à¶¥Ê½
+//æ˜¾ç¤ºå¤šé¡¶å¼
 void DispPoly(float A[], int n)
 {
 	int i;
@@ -91,95 +91,95 @@ void DispPoly(float A[], int n)
 
 
 
-//Ö÷º¯Êı
+//ä¸»å‡½æ•°
 int main()
 {
 	int e;
 	int na, nb, nc;
-	SqList<int> La, Lb;										// ¼¯ºÏA¡¢B
-	SqList<int> Lc;											// Ë³Ğò±í
-	SqList<float> fa, fb, fc;									// ¶àÏîÊ½A¡¢B¡¢C
+	SqList<int> La, Lb;										// é›†åˆAã€B
+	SqList<int> Lc;											// é¡ºåºè¡¨
+	SqList<float> fa, fb, fc;									// å¤šé¡¹å¼Aã€Bã€C
 
-	system("cls");											// ÇåÆÁ
+	system("cls");											// æ¸…å±
 
 	int choice;
 	do
 	{
-		dispmenu();											// ÏÔÊ¾Ö÷²Ëµ¥
-		cout << "Enter choice(1~4,0ÍË³ö):";
+		dispmenu();											// æ˜¾ç¤ºä¸»èœå•
+		cout << "Enter choice(1~4,0é€€å‡º):";
 		cin >> choice;
 		switch (choice)
 		{
-		case 1:											// Çó¼¯ºÏ²¢
-			cout << "´´½¨¼¯ºÏA¡¢B\n";
-			cout << "ÊäÈë¼¯ºÏAÔªËØ¸öÊı£º";
+		case 1:											// æ±‚é›†åˆå¹¶
+			cout << "åˆ›å»ºé›†åˆAã€B\n";
+			cout << "è¾“å…¥é›†åˆAå…ƒç´ ä¸ªæ•°ï¼š";
 			cin >> na;
-			cout << "ÊäÈë¼¯ºÏBÔªËØ¸öÊı£º";
+			cout << "è¾“å…¥é›†åˆBå…ƒç´ ä¸ªæ•°ï¼š";
 			cin >> nb;
-			InitList(La, na + nb);							// ´´½¨¼¯ºÏA
-			cout << "´´½¨¼¯ºÏAµÄÔªËØ\n";
+			InitList(La, na + nb);							// åˆ›å»ºé›†åˆA
+			cout << "åˆ›å»ºé›†åˆAçš„å…ƒç´ \n";
 			CreateList(La, na);
-			InitList(Lb, nb);							// ´´½¨¼¯ºÏB
-			cout << "´´½¨¼¯ºÏBµÄÔªËØ\n";
+			InitList(Lb, nb);							// åˆ›å»ºé›†åˆB
+			cout << "åˆ›å»ºé›†åˆBçš„å…ƒç´ \n";
 			CreateList(Lb, nb);
-			cout << "¼¯ºÏAÎª£º" << endl;					// ÏÔÊ¾¼¯ºÏA
+			cout << "é›†åˆAä¸ºï¼š" << endl;					// æ˜¾ç¤ºé›†åˆA
 			DispList(La);
-			cout << "¼¯ºÏBÎª£º" << endl;					// ÏÔÊ¾¼¯ºÏB
+			cout << "é›†åˆBä¸ºï¼š" << endl;					// æ˜¾ç¤ºé›†åˆB
 			DispList(Lb);
-			Union(La, Lb);								// Çó¼¯ºÏ²¢
-			cout << "A¡ÈBÎª:" << endl;						// ÏÔÊ¾½á¹û
+			Union(La, Lb);								// æ±‚é›†åˆå¹¶
+			cout << "AâˆªBä¸º:" << endl;						// æ˜¾ç¤ºç»“æœ
 			DispList(La);
 			cout << endl;
 			DestroyList(La);
 			DestroyList(Lb);
 			break;
 
-		case 2:											// Ë³Ğò±íÄæÖÃ
-			cout << "ÇëÊäÈëÒª´´½¨µÄË³Ğò±íÖĞÔªËØ¸öÊı:";
+		case 2:											// é¡ºåºè¡¨é€†ç½®
+			cout << "è¯·è¾“å…¥è¦åˆ›å»ºçš„é¡ºåºè¡¨ä¸­å…ƒç´ ä¸ªæ•°:";
 			cin >> nc;
 			InitList(Lc, nc);
 			cout << endl;
 			CreateList(Lc, nc);
-			cout << "´´½¨µÄË³Ğò±íÎª£º" << endl;				// ÏÔÊ¾¼¯ºÏA
+			cout << "åˆ›å»ºçš„é¡ºåºè¡¨ä¸ºï¼š" << endl;				// æ˜¾ç¤ºé›†åˆA
 			DispList(Lc);
 			ReverseSqList(Lc);
-			cout << "ÄæÖÃºóµÄË³Ğò±íÎª£º" << endl;			// ÏÔÊ¾¼¯ºÏA
+			cout << "é€†ç½®åçš„é¡ºåºè¡¨ä¸ºï¼š" << endl;			// æ˜¾ç¤ºé›†åˆA
 			DispList(Lc);
 			cout << endl;
 			DestroyList(Lc);
 			break;
-		case 3:											//¶àÏîÊ½ÇóºÍ
-			cout << "\n´´½¨¶àÏîÊ½A\n";						// ´´½¨¶àÏîÊ½A
-			cout << "ÊäÈë¶àÏîÊ½AµÄÏîÊı£º";
+		case 3:											//å¤šé¡¹å¼æ±‚å’Œ
+			cout << "\nåˆ›å»ºå¤šé¡¹å¼A\n";						// åˆ›å»ºå¤šé¡¹å¼A
+			cout << "è¾“å…¥å¤šé¡¹å¼Açš„é¡¹æ•°ï¼š";
 			cin >> na;
 			InitList(fa, na);
-			cout << "°´ÃİÉıĞòÊäÈë¶àÏîÊ½A¸÷ÏîÏµÊı\n";
+			cout << "æŒ‰å¹‚å‡åºè¾“å…¥å¤šé¡¹å¼Aå„é¡¹ç³»æ•°\n";
 			CreateList(fa, na);
-			cout << "\n´´½¨¶àÏîÊ½B\n";						// ´´½¨¶àÏîÊ½B
-			cout << "ÊäÈë¶àÏîÊ½BµÄÏîÊı£º";
+			cout << "\nåˆ›å»ºå¤šé¡¹å¼B\n";						// åˆ›å»ºå¤šé¡¹å¼B
+			cout << "è¾“å…¥å¤šé¡¹å¼Bçš„é¡¹æ•°ï¼š";
 			cin >> nb;
 			InitList(fb, nb);
-			cout << "°´ÃİÉıĞòÊäÈë¶àÏîÊ½B¸÷ÏîÏµÊı\n";
+			cout << "æŒ‰å¹‚å‡åºè¾“å…¥å¤šé¡¹å¼Bå„é¡¹ç³»æ•°\n";
 			CreateList(fb, nb);
-			cout << "\n¶àÏîÊ½ A Îª £º" << endl;				// ÏÔÊ¾¶àÏîÊ½A
+			cout << "\nå¤šé¡¹å¼ A ä¸º ï¼š" << endl;				// æ˜¾ç¤ºå¤šé¡¹å¼A
 			DispPoly(fa.elem, na);
-			cout << "\n¶àÏîÊ½ B Îª £º" << endl;				// ÏÔÊ¾¶àÏîÊ½B
+			cout << "\nå¤šé¡¹å¼ B ä¸º ï¼š" << endl;				// æ˜¾ç¤ºå¤šé¡¹å¼B
 			DispPoly(fb.elem, nb);
 			nc = (na >= nb) ? na : nb;
-			InitList(fc, nc);							// ´´½¨¶àÏîÊ½C
-			PolyAdd(fa, fb, fc);							// Çó¶àÏîÊ½ C=A+B
-			cout << "\n¶àÏîÊ½A + ¶àÏîÊ½B = " << endl;		// ÏÔÊ¾½á¹û
+			InitList(fc, nc);							// åˆ›å»ºå¤šé¡¹å¼C
+			PolyAdd(fa, fb, fc);							// æ±‚å¤šé¡¹å¼ C=A+B
+			cout << "\nå¤šé¡¹å¼A + å¤šé¡¹å¼B = " << endl;		// æ˜¾ç¤ºç»“æœ
 			DispPoly(fc.elem, nc);
 			cout << endl;
 			DestroyList(fa);
 			DestroyList(fb);
 			DestroyList(fc);
 			break;
-		case 0:											// ÍË³ö
-			cout << " ½áÊøÔËĞĞbye-bye!" << endl;
+		case 0:											// é€€å‡º
+			cout << " ç»“æŸè¿è¡Œbye-bye!" << endl;
 			break;
-		default:										// ÎŞĞ§Ñ¡Ôñ
-			cout << "ÎŞĞ§Ñ¡Ôñ!\n";
+		default:										// æ— æ•ˆé€‰æ‹©
+			cout << "æ— æ•ˆé€‰æ‹©!\n";
 			break;
 		}
 	} while (choice != 0);

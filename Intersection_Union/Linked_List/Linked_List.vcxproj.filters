@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SqList.h">
+    <ClInclude Include="LinkList.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{9df092c9-0251-46f4-a747-83ad359959a0}</ProjectGuid>
-    <RootNamespace>homework240306</RootNamespace>
+    <ProjectGuid>{b2eef80b-772e-44e2-856d-c8def3242ee3}</ProjectGuid>
+    <RootNamespace>LinkedList</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="SqList.h" />
+    <ClInclude Include="LinkList.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

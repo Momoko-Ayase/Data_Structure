@@ -66,7 +66,7 @@ int main()
 	Union(A, B);
 	cout << "A∪B: ";
 	DispList(A);
-	A.length = length_a; // Reset A to its original length
+	A.length = length_a; // Reset A to its original length, no need to delete the elements
 	Intersection(A, B);
 	cout << "A∩B: ";
 	DispList(A);

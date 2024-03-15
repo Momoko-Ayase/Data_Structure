@@ -32,10 +32,7 @@ void Union(LNode<DT>*& A, LNode<DT>*& B, int length_a, int length_b)
 	{
 		int temp;
 		GetElem_i(B, i, temp); // You should manually get the element instead of using B.elem[i]
-		if (LocateElem_e(A, temp) == 0)
-		{
-			InsertElem_i(A, ++length_a, temp); // ++length_a to always insert at the end
-		}
+		if (LocateElem_e(A, temp) == 0) InsertElem_i(A, ++length_a, temp); // ++length_a to always insert at the end
 	}
 }
 template <class DT>
@@ -48,7 +45,8 @@ void Intersection(LNode<DT>*& A, LNode<DT>*& B, int length_a)
 		GetElem_i(A, i, temp);
 		if (LocateElem_e(B, temp) == 0)
 		{
-			DeleElem_i(A, i);
+			DeleElem_i(A, i--);
+			length_a--;
 		}
 	}
 }
@@ -72,10 +70,7 @@ int main()
 	Union(A, B, length_a, length_b); // You should manually pass the length of the list instead of using A.length
 	cout << "A∪B: ";
 	DispList(A);
-	while (true)
-	{
-		if (!DeleElem_i(A, length_a + 1)) break; // Delete elements after the original list A
-	}
+	while (true) if (!DeleElem_i(A, length_a + 1)) break; // Delete elements after the original list A
 	Intersection(A, B, length_a);
 	cout << "A∩B: ";
 	DispList(A);

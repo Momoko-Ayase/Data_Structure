@@ -25,25 +25,13 @@ bool CreateListNoRepeat(SqList<DT>& L, int n)
 template <class DT>
 void Union(SqList<DT>& A, const SqList<DT>& B)
 {
-	for (int i = 0; i < B.length; ++i)
-	{
-		if (LocateElem_e(A, B.elem[i]) == 0)
-		{
-			InsertElem_i(A, A.length + 1, B.elem[i]);
-		}
-	}
+	for (int i = 0; i < B.length; ++i) if (LocateElem_e(A, B.elem[i]) == 0) InsertElem_i(A, A.length + 1, B.elem[i]);
 }
 template <class DT>
 void Intersection(SqList<DT>& A, const SqList<DT>& B)
 {
 	int k = 0;
-	for (int i = 0; i < A.length; ++i)
-	{
-		if (LocateElem_e(B, A.elem[i]) > 0)
-		{
-			A.elem[k++] = A.elem[i];
-		}
-	}
+	for (int i = 0; i < A.length; ++i) if (LocateElem_e(B, A.elem[i]) > 0) A.elem[k++] = A.elem[i];
 	A.length = k;
 }
 int main()

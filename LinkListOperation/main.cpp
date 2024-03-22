@@ -59,7 +59,6 @@ void MergeTwoOrderedLists(LNode<DT>*& L1, LNode<DT>*& L2)
 		}
 		else if ((q->data) >= (s->data) && (p->data) <= (s->data))
 		{
-			int n = s->data;
 			LNode<DT>* t;
 			t = s->next;
 			s->next = q;
